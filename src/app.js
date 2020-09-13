@@ -13,7 +13,7 @@ Vue.use(Meta, {
 
 export const createApp = (context) =>  {
     const router = createRouter();
-    const store = createStore(context.state);
+    const store = createStore();
 
     const app = new Vue({
         store,

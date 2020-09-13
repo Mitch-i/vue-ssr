@@ -1,5 +1,5 @@
 {
-  "name": "vue-ssr - vue-ssr always something not work as you expected",
+  "name": "vuessr",
   "version": "0.1.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon ./server.js",

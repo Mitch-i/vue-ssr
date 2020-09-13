@@ -1,6 +1,5 @@
 <template>
     <div>
-        {{ locale }}
         <ul>
             <li v-for="user in users">{{user.name}} {{user.lastname}}</li>
         </ul>
@@ -14,11 +13,6 @@
             users: {
                 type: Array,
                 required: true
-            }
-        },
-        computed: {
-            locale() {
-                return this.$store.getters.getLocale;
             }
         }
     };
