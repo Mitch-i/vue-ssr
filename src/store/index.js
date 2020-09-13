@@ -4,9 +4,8 @@ import * as getters from './getters';
 import axios from 'axios';
 
 
-const createStore = (state) => {
+const createStore = () => {
     return new Store({
-        state,
         mutations,
         getters,
         actions: {
