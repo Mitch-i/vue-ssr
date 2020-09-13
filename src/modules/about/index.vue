@@ -2,7 +2,7 @@
     <div>
         <router-link to="/">Go to Home page</router-link>
         <h1>About page</h1>
-        {{ locale }}
+        Locale: {{ xlocale }}
     </div>
 </template>
 
@@ -18,7 +18,7 @@
             ]
         },
         computed: {
-            locale() {
+            xlocale() {
                 return this.$store.getters.getLocale;
             }
         },

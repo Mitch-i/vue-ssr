@@ -2,13 +2,15 @@
     <div>
         <router-link to="/about">Go to About page</router-link>
         <users-list :users="users"></users-list>
+        Locale: {{ xlocale }}
     </div>
 </template>
 
 <script>
+    import Locale from '../../store/modules/Locale.js';
     import {mapGetters} from 'vuex';
     import UsersList from './components/users-list/index.vue';
-    import Locale from '../../store/modules/Locale.js';
+
 
     export default {
         name: 'Home',
@@ -24,6 +26,9 @@
         computed: {
             users() {
                 return this.$store.getters.users;
+            },
+            xlocale() {
+                return this.$store.getters.getLocale;
             }
         },
         // Server-side only
@@ -35,8 +40,11 @@
             return this.getUsers();
         },
         // Client-side only
+        // beforeMount() {
+        //     this.$store.registerModule('Locale', Locale, { preserveState: true });
+        // },
         mounted () {alert('bm home');
-          this.$store.registerModule('Locale', Locale, { preserveState: true });
+            this.$store.registerModule('Locale', Locale, { preserveState: true });
             // If we didn't already do it on the server, we fetch the users
             if (!this.users.length) {
                 this.getUsers();
@@ -50,5 +58,8 @@
         destroyed() {alert('destroyed home');
           this.$store.unregisterModule('Locale');
         },
+
+
+
     };
 </script>
